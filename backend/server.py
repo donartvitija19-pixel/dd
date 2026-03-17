@@ -1052,6 +1052,11 @@ async def export_full_backup(current_user: User = Depends(require_admin)):
 
 app.include_router(api_router)
 
+# Health check endpoint
+@app.get("/health")
+async def health_check():
+    return {"status": "healthy", "service": "AVALANT Manager"}
+
 app.add_middleware(
     CORSMiddleware,
     allow_credentials=True,
