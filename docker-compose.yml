@@ -8,8 +8,7 @@ services:
     ports:
       - "8001:8001"
     environment:
-      # This uses the service name 'mongodb' as the hostname
-      - MONGO_URL=mongodb://${MONGO_INITDB_ROOT_USERNAME}:${MONGO_INITDB_ROOT_PASSWORD}@mongodb:27017/${DB_NAME}?authSource=admin
+      - MONGO_URL=${MONGO_URL}
       - DB_NAME=${DB_NAME}
       - JWT_SECRET_KEY=${JWT_SECRET_KEY}
       - CORS_ORIGINS=${CORS_ORIGINS}
@@ -38,14 +37,11 @@ services:
     image: mongo:7
     ports:
       - "27017:27017"
-    environment:
-      # These 3 lines are CRITICAL for fixing the Authentication error
-      - MONGO_INITDB_DATABASE=${DB_NAME}
-      - MONGO_INITDB_ROOT_USERNAME=${MONGO_INITDB_ROOT_USERNAME}
-      - MONGO_INITDB_ROOT_PASSWORD=${MONGO_INITDB_ROOT_PASSWORD}
     volumes:
       - mongodb_data:/data/db
     restart: unless-stopped
+    environment:
+      - MONGO_INITDB_DATABASE=${DB_NAME}
 
 volumes:
   mongodb_data:
