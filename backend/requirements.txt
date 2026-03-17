@@ -29,7 +29,7 @@ fsspec==2026.2.0
 google-ai-generativelanguage==0.6.15
 google-api-core==2.30.0
 google-api-python-client==2.190.0
-google-auth==2.49.0.dev0
+google-auth==2.48.0
 google-auth-httplib2==0.3.0
 google-genai==1.65.0
 google-generativeai==0.8.6
@@ -52,7 +52,6 @@ jmespath==1.1.0
 jq==1.11.0
 jsonschema==4.26.0
 jsonschema-specifications==2025.9.1
-librt==0.8.1
 litellm==1.80.0
 markdown-it-py==4.0.0
 MarkupSafe==3.0.3
