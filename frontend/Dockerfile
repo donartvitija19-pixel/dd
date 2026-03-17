@@ -11,6 +11,9 @@ RUN yarn install --frozen-lockfile
 # Copy source code
 COPY . .
 
+ARG REACT_APP_BACKEND_URL=http://localhost:8001
+ENV REACT_APP_BACKEND_URL=$REACT_APP_BACKEND_URL
+
 # Build application
 RUN yarn build
 
